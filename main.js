@@ -1,6 +1,6 @@
 // Returns a random DNA base
 const returnRandBase = () => {
-  const dnaBases = ['A', 'T', 'C', 'G'];
+  const dnaBases = ["A", "T", "C", "G"];
   return dnaBases[Math.floor(Math.random() * 4)];
 };
 
@@ -13,10 +13,11 @@ const mockUpStrand = () => {
   return newStrand;
 };
 
+const pAequorFactory = (specimenNum, dna) => {
+  return {
+    specimenNum,
+    dna,
+  };
+};
 
-
-
-
-
-
-
+// created factory function pAequorFactory() that returns object with properties specimenNum and dna
