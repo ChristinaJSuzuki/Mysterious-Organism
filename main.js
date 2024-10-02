@@ -17,7 +17,20 @@ const pAequorFactory = (specimenNum, dna) => {
   return {
     specimenNum,
     dna,
+    mutate() {
+      const randomIndex = Math.floor(Math.random() * this.dna.length);
+      let newBase = returnRandBase();
+      while (this.dna[randomIndex] === newBase) {
+        newBase = returnRandBase();
+      }
+      this.dna[randomIndex] = newBase;
+      return this.dna;
+    },
   };
 };
 
 // created factory function pAequorFactory() that returns object with properties specimenNum and dna
+// used Math.floor to get random index in dna array
+// returnRandBase() to generate new base that s different from current base
+// replaced base
+// Returned modified dna array
