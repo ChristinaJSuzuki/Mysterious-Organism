@@ -40,6 +40,16 @@ const pAequorFactory = (specimenNum, dna) => {
         } have ${percentage.toFixed(2)}% DNA in common`
       );
     },
+    willLikelySurvive() {
+      let count = 0;
+      for (let i = 0; i < this.dna.length; i++) {
+        if (this.dna[i] === "C" || this.dna[i] === "G") {
+          count++;
+        }
+      }
+      const percentage = (count / this.dna.length) * 100;
+      return percentage >= 60;
+    },
   };
 };
 
@@ -52,3 +62,6 @@ const pAequorFactory = (specimenNum, dna) => {
 // kept count of how many bases are identical and in the same position
 // calculated percentage by dividing count of identical bases by the total number of bases and multiply by 100
 // console.log() printed the percentage of DNA in common, including the specimenNum of both objects
+// iterated through DNA using loop to count the number of 'C' and 'G' bases in the dna array
+// calculated percentage by dividing the count of 'C' and 'G' bases by the total number of bases (15) and multiply by 100
+// return true if the percentage is at least 60%, if not return false
