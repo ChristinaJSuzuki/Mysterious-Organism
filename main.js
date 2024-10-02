@@ -26,6 +26,20 @@ const pAequorFactory = (specimenNum, dna) => {
       this.dna[randomIndex] = newBase;
       return this.dna;
     },
+    compareDNA(otherPAequor) {
+      let identicalCount = 0;
+      for (let i = 0; i < this.dna.length; i++) {
+        if (this.dna[i] === otherPAequor.dna[i]) {
+          identicalCount++;
+        }
+      }
+      const percentage = (identicalCount / this.dna.length) * 100;
+      console.log(
+        `specimen #${this.specimenNum} and specimen #${
+          otherPAequor.specimenNum
+        } have ${percentage.toFixed(2)}% DNA in common`
+      );
+    },
   };
 };
 
@@ -34,3 +48,7 @@ const pAequorFactory = (specimenNum, dna) => {
 // returnRandBase() to generate new base that s different from current base
 // replaced base
 // Returned modified dna array
+// iterated through DNA using loop to compare each base in the dna array of the current object with the corresponding base in the passed-in object’s dna
+// kept count of how many bases are identical and in the same position
+// calculated percentage by dividing count of identical bases by the total number of bases and multiply by 100
+// console.log() printed the percentage of DNA in common, including the specimenNum of both objects
