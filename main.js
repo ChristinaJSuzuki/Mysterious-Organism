@@ -65,3 +65,21 @@ const pAequorFactory = (specimenNum, dna) => {
 // iterated through DNA using loop to count the number of 'C' and 'G' bases in the dna array
 // calculated percentage by dividing the count of 'C' and 'G' bases by the total number of bases (15) and multiply by 100
 // return true if the percentage is at least 60%, if not return false
+
+const survivingSpecimens = [];
+let id = 1;
+
+while (survivingSpecimens.length < 30) {
+  const newOrganism = pAequorFactory(id, mockUpStrand());
+  if (newOrganism.willLikelySurvive()) {
+    survivingSpecimens.push(newOrganism);
+  }
+  id++;
+}
+
+console.log(survivingSpecimens);
+
+// created empty array to store the instances.
+// used a loop to generate instances using pAequorFactory(), and checked if each instance was likely to survive using .willLikelySurvive()
+// added instances that were likely to survive to the array
+// repeated process until the array contained 30 instances
